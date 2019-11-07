@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{ Component } from 'react';
+import { Route, NavLink } from 'react-router-dom';
+import axios from 'axios';
+import { Button } from 'reactstrap';
+import NavBar from './components/NavBar';
+import FriendsList from './components/FriendsList';
+import Friend from './components/Friend';
+import Home from './components/Home';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+ constructor() {
+   super();
+   this.state = {
+     friends: [],
+   };
+ }
+
+ componentDidMount() {
+   axios.get("http://localhost:5000/friends")
+    .then(res => {
+      this.setState({friends: res.data})
+    })
+    .catch(err => console.log(err));
+ }
+
+ render() {
+   console.log('this.state.friends = ', this.state.friends)
+   return (
+     <div className="App">
+       <NavBar />
+       <Route exact path="/" component={Home} />
+       <Route exact path="/friends" render={props => (
+         <FriendsList {...props} friends={this.state.friends} />
+       )} />
+       <Route path="/friends/:friendId" render={props => <Friend {...props} friends={this.state.friends} /> }/>
+     </div>
+   );
+ }
 }
 
 export default App;
