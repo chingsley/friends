@@ -26,7 +26,7 @@ const NavBar = (props) => {
       <Container>
         <Row>
           <Col>
-            <Navbar color="light" light expand="md">
+            <Navbar color="transparent" light expand="md">
               <NavbarBrand href="/">Home</NavbarBrand>
               <NavbarToggler onClick={toggle} />
               <Collapse isOpen={isOpen} navbar>
