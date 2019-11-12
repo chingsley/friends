@@ -16,6 +16,8 @@ import {
   DropdownItem
 } from 'reactstrap';
 
+import './NavBar.css';
+
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -43,10 +45,10 @@ const NavBar = (props) => {
                     </DropdownToggle>
                     <DropdownMenu right>
                       <DropdownItem>
-                        Option 1
+                        <NavLink href="/friends/new">Add a friend</NavLink>
                       </DropdownItem>
                       <DropdownItem>
-                        Option 2
+                        <NavLink href="/friends/new">View all friends</NavLink>
                       </DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem>

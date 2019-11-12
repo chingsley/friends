@@ -1,11 +1,11 @@
 import React,{ Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import axios from 'axios';
-import { Button } from 'reactstrap';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar2';
 import FriendsList from './components/FriendsList';
-import Friend from './components/Friend';
-import Home from './components/Home';
+import FormAddNew from './components/FormAddNew';
+import Home from './components/Home2';
+import Modal from './components/modal/Modal';
 import './App.css';
 
 class App extends Component {
@@ -19,24 +19,69 @@ class App extends Component {
  componentDidMount() {
    axios.get("http://localhost:5000/friends")
     .then(res => {
+      localStorage.setItem('friends', JSON.stringify(res.data))
       this.setState({friends: res.data})
     })
     .catch(err => console.log(err));
  }
 
+ addNewFriend = form => {
+   axios
+     .post("http://localhost:5000/friends", form)
+     .then(res => {
+       localStorage.setItem('friends', JSON.stringify(res.data))
+       this.setState({ friends: res.data });
+       this.props.history.push('/friends');
+     })
+     .catch(err => console.log(err));
+ };
+
+ updateFriend = friend => {
+   axios
+    .put(`http://localhost:5000/friends/${friend.id}`, friend)
+    .then(res => {
+      localStorage.setItem('friends', JSON.stringify(res.data))
+      this.setState({ friends: res.data })
+      this.props.history.push('/friends');
+    })
+    .catch(err => console.log(err));
+ };
+
  render() {
-   console.log('this.state.friends = ', this.state.friends)
    return (
      <div className="App">
        <NavBar />
        <Route exact path="/" component={Home} />
        <Route exact path="/friends" render={props => (
-         <FriendsList {...props} friends={this.state.friends} />
-       )} />
-       <Route path="/friends/:friendId" render={props => <Friend {...props} friends={this.state.friends} /> }/>
+         <FriendsList
+          {...props}
+          friends={this.state.friends}
+          setActiveFriend={this.setActiveFriend}
+         />
+       )}/>
+       <Route path="/friends/new" render={props => (
+         <FormAddNew
+           {...props}
+           addNewFriend={this.addNewFriend}
+         />
+       )}/>
+       <Route path="/friends/:friendId/edit" render={props => (
+         <FormAddNew
+           {...props}
+           updateFriend={this.updateFriend}
+         />
+       )}/>
+       <Route path="/friends/:friendId/delete" render={props => (
+         <Modal
+           {...props}
+         />
+       )}/>
      </div>
    );
  }
 }
 
-export default App;
+const AppWithRouter = withRouter(App);
+
+
+export default AppWithRouter;

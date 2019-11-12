@@ -1,0 +1,88 @@
+.form-container-row {
+  justify-content: center;
+}
+
+/* .form-container {
+  margin-top: 2rem;
+    background-image: linear-gradient(
+                      180deg,
+                    rgba(0, 0, 0, .7), 100%, 
+                      transparent 0%
+                    ),
+                    url(https://images.unsplash.com/photo-1517840933437-c41356892b35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+  background-size: cover;
+  background-position: left;
+} */
+
+.form-container {
+  max-width: 95%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-top: 2rem;
+    background-image: linear-gradient(
+                    24deg,
+                    rgba(0, 0, 0, .7) 53%, 
+                    rgba(0, 0, 0, .5) 0%
+                    ),
+                    url(https://images.unsplash.com/photo-1517840933437-c41356892b35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+  background-size: cover;
+  background-position: left;
+}
+
+.new-friend-form {
+  width: 70%;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  /* margin: 5rem auto; */
+  /* border: 1px solid silver; */
+  padding: 3rem;
+  /* background-color: rgb(248, 249, 250); */
+  background-color: transparent;
+}
+
+.form-control {
+  /* background: transparent; */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-text-fill-color: #495057;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.btn-add-friend {
+  /* float: right; */
+}
+
+.btn-secondary {
+    color: #fff;
+    /* background-color: #E75146; */
+    background-color: rgb(21, 195, 154);
+    /* border-color: #6c757d; */
+    border-color: transparent;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(21, 195, 154, 0.5);
+  border-color: white;
+}
+
+.form-error {
+  /* height: 2rem; */
+  /* border: 1px solid lightblue; */
+  background-color: transparent !important;
+  border: none !important;
+  color: #d41414;
+  font-size: 20px;
+  font-weight: bold;
+}

@@ -1,6 +1,3 @@
-.nav-container {
-  background-color: #f8f9fa;
-}
 .carousel-inner,
 .carousel-item, 
 .carousel-item.active {
@@ -40,4 +37,7 @@ img {
 .card-text {
   margin-top: 1rem;
   border-bottom: 1px solid silver;
+  height: 6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -1,0 +1,40 @@
+.nav-container {
+  background-color: #08100e;
+  /* background-color: darkslategray; */
+  /* margin-top: 1rem; */
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+}
+.navbar-light .navbar-brand:hover {
+    color: white;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    /* color: rgba(0, 0, 0, 0.5); */
+    color: white;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    /* color: rgba(0, 0, 0, 0.5); */
+    color: white;
+}
+
+.dropdown-menu {
+  /* background-color: #08100e; */
+  background-color: darkslategray;
+  color: white;
+}
+
+.dropdown-item {
+    color: white;
+}
+.dropdown-item:hover {
+    color: white;
+    background-color: transparent;
+}
+
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+    color: white;
+}

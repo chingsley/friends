@@ -5,7 +5,6 @@ import {
 } from 'reactstrap';
 
 const Friend = (props) => {
-  console.log(props.friends)
   return (
     <div>
       <Card>

@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Container, Row, Col, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
+  CardTitle, CardSubtitle,
 } from 'reactstrap';
 
+const a = document.querySelector('body');
+console.log(a);
+
 const FriendsList = (props) => {
-  console.log(props.friends)
   return (
     <Container>
       <Row>
@@ -20,10 +23,12 @@ const FriendsList = (props) => {
                 <CardSubtitle><h6>{friend.email}</h6></CardSubtitle>
                 <CardImg className="card-img" top width="100%" src={friend.image} alt="Card image cap" />
                 <CardText>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptatum animi natus facilis placeat veritatis, ...
+                {friend.description.length > 104 ?
+                    friend.description.slice(0, 104) + '...' :
+                    friend.description}
                 </CardText>
-                <Button>Button</Button>
+                <Link className="btn btn-secondary" to={`/friends/${friend.id}/edit`}>Edit</Link>{' '}
+                <Link className="btn btn-secondary" to={`/friends/${friend.id}/delete`}>Delete</Link>
               </CardBody>
             </Card>
           ))}
