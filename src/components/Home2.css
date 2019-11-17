@@ -91,9 +91,10 @@ background-position: left center;
 
 .search-btn, .btn-veiw-price {
   width: 160px;
-  background-color: #0067b8;
+  /* background-color: #0067b8; */
   /* background-color: rgb(194, 25, 7); */
-  background-color: rgb(21, 195, 154);
+  /* background-color: rgb(21, 195, 154); */
+  background-color: rgb(21, 146, 166);
   color: white;
   line-height: 25px;
   padding: 9px 24px;

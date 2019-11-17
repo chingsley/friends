@@ -38,7 +38,7 @@ class Friend extends React.Component {
           <Button className="btn" color="warning" onClick={this.modalToggle}>View</Button>
         </CardBody>
         <Modal2 
-          onClick={this.modalToggle}
+          closeModal={this.modalToggle}
           status={this.state.modal}
           friend={friend}
         />

@@ -2,10 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import './modalStyle.sass';
+import ModalDeleteFriend from './ModalDeleteFriend';
+import './modalViewFriend.sass';
 
 class Modal2 extends React.Component {
+  state = {
+    deleteModalStatus: false,
+  }
 
+  toggleDeleteModalStatus = () => {
+    this.setState(prevState => ({ deleteModalStatus: !prevState.deleteModalStatus}))
+  }
 
   render() {
     return (
@@ -17,14 +24,25 @@ class Modal2 extends React.Component {
         <div className="modal-right">
           <h2>{this.props.friend.name}</h2>
           <p>{this.props.friend.description}</p>
-          <button onClick={this.props.onClick} className="close">
+          <button onClick={this.props.closeModal} className="close">
             <span className="fa fa-close"></span>
           </button>
           <div>
             <Link className="btn btn-info" to={`/friends/${this.props.friend.id}/edit`}>Edit</Link>{' '}
-            <Button className="btn-modal btn-delete-friend" color="danger">Delete</Button>
+            <Button
+              className="btn-modal btn-delete"
+              color="danger"
+              onClick={this.toggleDeleteModalStatus}
+            >
+                Delete
+            </Button>
           </div>
         </div>
+        <ModalDeleteFriend
+          friend={this.props.friend}
+          status={this.state.deleteModalStatus}
+          toggleDeleteModalStatus={this.toggleDeleteModalStatus}
+        />
       </div>
     );
   }

@@ -45,3 +45,8 @@ img {
 .btn {
   min-width: 4rem;
 }
+
+.btn-delete:hover {
+  background-color: rgba(164, 53, 69, 2);
+  transition: all 0.25s ease-in-out;
+}

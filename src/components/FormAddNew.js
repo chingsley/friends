@@ -151,7 +151,7 @@ class  FormAddNew extends React.Component {
               </FormGroup>
               <FormGroup row>
                 <Col sm={{ size: 10}}>
-                  <Button className="btn-add-friend">
+                  <Button color="info" className="btn-add-friend">
                     {this.state.isEditing ? 'Update Friend' : 'Add Friend'}
                   </Button>
                 </Col>
